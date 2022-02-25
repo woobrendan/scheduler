@@ -5,21 +5,25 @@ export default function useVisualMode(initial) {
   const [history, setHistory] = useState([initial]);
 
   const transition = (newMode, replace = false) => {
+    const copyHistory = [...history]
     setMode(newMode);
    
     if (replace) {
-      history.pop();
-      history.push(newMode);
+      copyHistory.pop();
+      copyHistory.push(newMode);
     } else {
-       history.push(newMode);
+      copyHistory.push(newMode);
     }
+    setHistory(copyHistory);
   }
   const back = () => {
+    const copyHistory = [...history]
     if (history.length === 1) {
-      return mode;
+      return;
     }
-    history.pop();
-    setMode(history[history.length-1])
+    copyHistory.pop();
+    setMode(copyHistory[copyHistory.length - 1]);
+    setHistory(copyHistory);
   }
 
   return {
