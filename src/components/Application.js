@@ -34,6 +34,24 @@ export default function Application(props) {
           appointments
         });
     })
+  };
+
+  function cancelInterview(id) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    }
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    }
+    return axios.delete(`/api/appointments/${id}`)
+    .then(res => {
+      setState({
+        ...state,
+       appointments
+      })
+    })
   }
 
   useEffect(() => {
@@ -54,7 +72,8 @@ export default function Application(props) {
       key={appointment.id}
       interview={interview}
       interviewers={dailyInterviewers}
-      bookInterview={bookInterview} 
+      bookInterview={bookInterview}
+      cancelInterview={cancelInterview} 
       />);
   });
   return (
