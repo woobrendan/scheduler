@@ -8,7 +8,7 @@ import Appointment from "components/Appointment/index"
 // afterEach(cleanup);
 
 describe("Appointment", () => {
-  test("renders without crashing", () => {
+  test.skip("renders without crashing", () => {
     render(<Appointment />);
   });
 
