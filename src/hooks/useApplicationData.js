@@ -1,9 +1,5 @@
 import axios from 'axios';
-import {
-  useState,
-  useEffect
-} from 'react';
-
+import { useState, useEffect } from 'react';
 
 export default function useApplicationData() {
 
@@ -41,8 +37,8 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    //update spot count with newly booked interview
-    spotCounter("book")
+    //update spot count +1
+    spotCounter("book");
 
     return axios.put(`/api/appointments/${id}`, {
         interview
@@ -51,21 +47,22 @@ export default function useApplicationData() {
         setState({
           ...state,
           appointments
-        })
+        });
       })
-
   };
 
   function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],
       interview: null
-    }
+    };
     const appointments = {
       ...state.appointments,
       [id]: appointment
-    }
+    };
+    //reduce spot count by 1
     spotCounter("cancel")
+
     return axios.delete(`/api/appointments/${id}`)
       .then(res => {
         setState({
@@ -81,19 +78,19 @@ export default function useApplicationData() {
       axios.get('/api/appointments'),
       axios.get('/api/interviewers')
     ]).then((all) => {
-      setState(prev => ({
-        ...prev,
-        days: all[0].data,
-        appointments: all[1].data,
-        interviewers: all[2].data
-      }))
+        setState(prev => ({
+          ...prev,
+          days: all[0].data,
+          appointments: all[1].data,
+          interviewers: all[2].data
+        }));
     })
-  }, [])
+  }, []);
 
   return {
     state,
     setDay,
     bookInterview,
     cancelInterview
-  }
-}
+  };
+};
