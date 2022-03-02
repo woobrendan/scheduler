@@ -7,18 +7,11 @@ import PropTypes from 'prop-types';
 
 export default function InterviewerList(props) {
   const parsedInterviewers = props.interviewers.map(interviewer =>
-    <
-    InterviewerListItem key = {
-      interviewer.id
-    }
-    selected = {
-      interviewer.id === props.value
-    }
-    setInterviewer = {
-      () => props.onChange(interviewer.id)
-    } {
-      ...interviewer
-    }
+    <InterviewerListItem 
+      key = {interviewer.id}
+      selected = {interviewer.id === props.value}
+      setInterviewer = {() => props.onChange(interviewer.id)} 
+      {...interviewer}
     />
   );
   return ( 
@@ -29,7 +22,7 @@ export default function InterviewerList(props) {
     </ul> 
     </section>
   );
-}
+};
 
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired
