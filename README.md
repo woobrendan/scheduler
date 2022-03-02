@@ -3,10 +3,20 @@ Interview Scheduler is an introductory to `React` project. This project works to
 
 Interview Scheduler is the first introduction to different testing frameworks such as `Jest` and `Cypress`. Throughout we look at the importance of testing and looking to have efficient coverage for our functions and applications.
 
+## Creating Appointments
+
 ![Creating New Appointment](
   https://github.com/woobrendan/scheduler/blob/master/public/docs/Add_appointment.gif
 )
 
+## Edit Appointments
+![Editing Appointment](
+  https://github.com/woobrendan/scheduler/blob/master/public/docs/edit_appointment.gif?raw=true
+)
+## Delete Appointments
+![Deleting Appointment](
+  https://github.com/woobrendan/scheduler/blob/master/public/docs/delete_appointment.gif?raw=true
+)
 ## Setup
 
 Install dependencies with `npm install`.
