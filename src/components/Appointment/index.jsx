@@ -22,6 +22,8 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
+
+  //takes information from Form and saves data through bookInterview
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -35,6 +37,7 @@ export default function Appointment(props) {
       .catch(err => transition(ERROR_SAVE, true));
   }
 
+  //takes information from Form and deletes data through cancelInterview
   function deleteInterview(id) {
 
     transition(DELETING, true);
@@ -52,11 +55,12 @@ export default function Appointment(props) {
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SAVING && <Status message="Saving" />}
-      {mode === CONFIRMING && <Confirm
-        onCancel={back}
-        onConfirm={() => deleteInterview(props.id)}
-        message="Are you sure you would like to Delete?"
-      />}
+      {mode === CONFIRMING &&
+        <Confirm
+          onCancel={back}
+          onConfirm={() => deleteInterview(props.id)}
+          message="Are you sure you would like to Delete?"
+        />}
       {mode === DELETING && <Status message="Deleting" />}
       {mode === SHOW && (
         <Show
