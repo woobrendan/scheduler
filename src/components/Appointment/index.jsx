@@ -9,8 +9,6 @@ import Confirm from './Confirm';
 import Error from './Error';
 import useVisualMode from "hooks/useVisualMode";
 
-
-
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -34,7 +32,7 @@ export default function Appointment(props) {
       .then(() => {
         transition(SHOW);
       })
-      .catch(err => transition(ERROR_SAVE, true))
+      .catch(err => transition(ERROR_SAVE, true));
   }
 
   function deleteInterview(id) {
@@ -46,8 +44,8 @@ export default function Appointment(props) {
       })
       .catch(err => {
         transition(ERROR_DELETE, true)
-      })
-  }
+      });
+  };
 
   return (
     <article className="appointment">
