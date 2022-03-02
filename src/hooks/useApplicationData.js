@@ -41,7 +41,7 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-
+    //update spot count with newly booked interview
     spotCounter("book")
 
     return axios.put(`/api/appointments/${id}`, {
