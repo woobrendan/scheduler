@@ -9,7 +9,7 @@ export default function InterviewerList(props) {
   const parsedInterviewers = props.interviewers.map(interviewer =>
     <InterviewerListItem 
       key = {interviewer.id}
-      selected = {interviewer.id === props.value}
+      selected = {interviewer === props.value}
       setInterviewer = {() => props.onChange(interviewer.id)} 
       {...interviewer}
     />
