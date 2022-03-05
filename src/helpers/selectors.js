@@ -22,6 +22,7 @@ export function getInterview(state, interview) {
   const interviewNum = interview.interviewer;
   //match the interviewer num with the interviewer id
   if (state.interviewers[interviewNum].id === interview.interviewer) {
+    //set result with student and interviewer
     result.student = interview.student;
     result.interviewer = state.interviewers[interviewNum]
   }
