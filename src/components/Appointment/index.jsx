@@ -34,7 +34,7 @@ export default function Appointment(props) {
       .then(() => {
         transition(SHOW);
       })
-      .catch(err => transition(ERROR_SAVE, true));
+      .catch(err => transition(ERROR_SAVE));
   }
 
   //takes information from Form and deletes data through cancelInterview
