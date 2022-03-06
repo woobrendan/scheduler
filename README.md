@@ -21,6 +21,16 @@ Interview Scheduler is the first introduction to different testing frameworks su
 
 Install dependencies with `npm install`.
 
+## Dependencies
+```sh
+- Axios
+- Classnames
+- Normalize
+- React
+- React-dom
+- React-scripts
+```
+
 ## Running Webpack Development Server
 
 ```sh
