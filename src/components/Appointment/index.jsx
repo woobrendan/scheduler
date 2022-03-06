@@ -89,7 +89,10 @@ export default function Appointment(props) {
           onClose={back}
           message="Could not cancel appointment"
         />}
-      {mode === ERROR_SAVE && <Error onClose={back} message="Could not save appointment" />}
+      {mode === ERROR_SAVE &&
+        <Error onClose={back}
+          message="Could not save appointment"
+        />}
     </article>
   );
 }
