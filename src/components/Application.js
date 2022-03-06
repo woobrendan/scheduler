@@ -1,5 +1,5 @@
 import React from "react";
-import Appointment from 'components/Appointment/index'
+import Appointment from 'components/Appointment/Index'
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 import "components/Application.scss";

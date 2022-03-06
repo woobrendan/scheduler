@@ -1,8 +1,8 @@
 import React from 'react';
 import 'components/Appointment/styles.scss';
-import Header from './header';
-import Show from './show';
-import Empty from './empty';
+import Header from './Header';
+import Show from './Show';
+import Empty from './Empty';
 import Form from './Form';
 import Status from './Status';
 import Confirm from './Confirm';
