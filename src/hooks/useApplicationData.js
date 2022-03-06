@@ -15,6 +15,7 @@ export default function useApplicationData() {
     day
   });
 
+ 
   const spotCounter = (action) => {
     const copyOfDays = [...state.days]
     const modifier = action === "book" ? -1 : 1;
@@ -27,6 +28,11 @@ export default function useApplicationData() {
   }
 
   function bookInterview(id, interview) {
+    //if already an interview, don't update spot (i.e when editing) 
+    if (!state.appointments[id].interview) {
+      spotCounter("book");
+    }
+
     const appointment = {
       ...state.appointments[id],
       interview: {
@@ -38,7 +44,6 @@ export default function useApplicationData() {
       [id]: appointment
     };
     //update spot count +1
-    spotCounter("book");
 
     return axios.put(`/api/appointments/${id}`, {
         interview
