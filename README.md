@@ -19,7 +19,7 @@ Interview Scheduler is the first introduction to different testing frameworks su
 )
 ## Setup
 
-Install dependencies with `npm install`.
+Install dependencies with `npm install`. Interview Scheduler pulls its data base from [Scheduler API](https://github.com/lighthouse-labs/scheduler-api) with its own set of simple set up instructions.
 
 ## Dependencies
 ```sh
