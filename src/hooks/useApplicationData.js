@@ -14,10 +14,10 @@ export default function useApplicationData() {
     ...state,
     day
   });
-
  
   const spotCounter = (action) => {
     const copyOfDays = [...state.days]
+    //action determines how to change spots
     const modifier = action === "book" ? -1 : 1;
     for (const day in copyOfDays) {
       if (copyOfDays[day].name === state.day) {
@@ -43,7 +43,6 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    //update spot count +1
 
     return axios.put(`/api/appointments/${id}`, {
         interview
