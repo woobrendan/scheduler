@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 export default function useApplicationData() {
 
   const [state, setState] = useState({
-    day: "monday",
+    day: "Monday",
     days: [],
     appointments: {},
     interviewers: {}
