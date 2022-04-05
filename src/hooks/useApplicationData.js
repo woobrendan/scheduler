@@ -28,7 +28,6 @@ export default function useApplicationData() {
               interview: action.interview
             }
           }
-          // state[appoinments][action.id][interview]: action.interview,
         } 
       default:
         throw new Error(
@@ -36,12 +35,7 @@ export default function useApplicationData() {
         )
     }
   }
-  // const [state, setState] = useState({
-    //   day: "Monday",
-  //   days: [],
-  //   appointments: {},
-  //   interviewers: {}
-  // });
+
   const [state, dispatch] = useReducer(reducer, 
     {
       day: "Monday",
@@ -71,36 +65,13 @@ export default function useApplicationData() {
       spotCounter("book");
     }
 
-    const appointment = {
-      ...state.appointments[id],
-      interview: {
-        ...interview
-      }
-    };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment
-    };
-
     return axios.put(`/api/appointments/${id}`, {interview})
       .then(response => {
         dispatch({type: SET_INTERVIEW, id, interview})
-        // setState({
-        //   ...state,
-        //   appointments
-        // });
       })
   };
 
   function cancelInterview(id) {
-    const appointment = {
-      ...state.appointments[id],
-      interview: null
-    };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment
-    };
     //reduce spot count by 1
     spotCounter("cancel")
 
